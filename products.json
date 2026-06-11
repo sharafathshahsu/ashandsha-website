@@ -1,0 +1,185 @@
+[
+  {
+    "id": "shelf-pegs",
+    "name": "Adjustable Kitchen Cabinet Shelf Pegs (Set of 16)",
+    "category": "Home & Kitchen",
+    "image": "product-shelf-pegs.svg",
+    "price": 11.99,
+    "compare_at": 16.99,
+    "short": "Sturdy replacement shelf support pegs that fit standard 5mm cabinet holes — no more sagging or wobbly shelves.",
+    "description": "Stop digging through junk drawers for a missing shelf peg. This set of 16 precision-printed support pegs fits standard 5mm cabinet shelf holes found in most kitchen, bathroom, and closet cabinetry. Printed in durable PETG for long-term load support, each peg has a textured grip ring so it stays put even when shelves are loaded with dishes, pantry items, or glassware.",
+    "features": [
+      "Fits standard 5mm cabinet shelf holes (most major brands)",
+      "Set of 16 — enough for 4 shelves with room to spare",
+      "Printed in tough, load-bearing PETG",
+      "Snug friction-fit grip prevents slipping",
+      "Available in matching cabinet-tone colors on request"
+    ],
+    "specs": [
+      "Peg diameter: 5mm",
+      "Material: PETG",
+      "Pack size: 16 pegs",
+      "Color: Clay (default) — custom colors available"
+    ]
+  },
+  {
+    "id": "cart-coins",
+    "name": "Shopping Cart Quarter Coins (Set of 4)",
+    "category": "Everyday Carry",
+    "image": "product-cart-coins.svg",
+    "price": 7.99,
+    "compare_at": null,
+    "short": "Never hunt for a quarter again. Reusable shopping cart release coins that live on your keyring.",
+    "description": "Skip the coin search at the grocery store. These reusable cart-release tokens are sized to fit the same coin slots as a quarter, so you can unlock a shopping cart instantly — then keep your actual quarters in your pocket. Comes with a keyring loop so you'll always have one on hand.",
+    "features": [
+      "Fits standard quarter-release shopping carts",
+      "Set of 4 — keep one on every keyring or bag",
+      "Built-in keyring loop",
+      "Lightweight, pocket-friendly, rattle-free design",
+      "Available in 6 accent colors"
+    ],
+    "specs": [
+      "Diameter: ~24mm (quarter-equivalent)",
+      "Material: PLA+ (indoor/everyday use)",
+      "Pack size: 4 coins + keyring loops",
+      "Color: Gold (default) — custom colors available"
+    ]
+  },
+  {
+    "id": "shipping-sizer",
+    "name": "Canada Post Shipping Box Slot Sizer Template",
+    "category": "Shipping & Office",
+    "image": "product-shipping-sizer.svg",
+    "price": 14.99,
+    "compare_at": null,
+    "short": "A reusable measuring template that instantly checks if your package fits Canada Post's small packet & parcel size tiers.",
+    "description": "Built for home-based sellers and small businesses shipping with Canada Post. This rigid template has cut-out slots matching common Canada Post small packet, parcel, and oversized parcel size thresholds, so you can check your box dimensions in seconds — no tape measure, no guesswork, no surprise rate adjustments at the counter.",
+    "features": [
+      "Slots correspond to common Canada Post size tiers",
+      "Durable, reusable PETG — won't bend like cardboard",
+      "Speeds up packing for high-volume sellers",
+      "Compact size, hangs on a hook near your packing station",
+      "Helps avoid oversize surcharges on shipments"
+    ],
+    "specs": [
+      "Material: PETG (rigid, reusable)",
+      "Dimensions: 25cm x 18cm template board",
+      "Includes: 1 sizer template + quick-reference card",
+      "Note: a packing aid — always confirm final rates with Canada Post"
+    ]
+  },
+  {
+    "id": "cord-winder",
+    "name": "Cable & Cord Winder (Set of 4)",
+    "category": "Home & Tech",
+    "image": "product-cord-winder.svg",
+    "price": 9.99,
+    "compare_at": 13.99,
+    "short": "Tangle-free cable management winders for chargers, earbuds, and small appliance cords.",
+    "description": "Keep charging cables, earbud wires, and small appliance cords neat and tangle-free. Each winder has a center notch to lock the cord end in place and a wide spool body that prevents kinks and stress on your cables. Great for travel bags, desk drawers, and kitchen counters.",
+    "features": [
+      "Set of 4 winders in assorted sizes",
+      "Center notch keeps cord ends secure",
+      "Smooth edges — won't damage cable insulation",
+      "Stackable for compact storage",
+      "Mix-and-match colors available"
+    ],
+    "specs": [
+      "Material: PLA+",
+      "Pack size: 4 winders (2 large, 2 small)",
+      "Diameter: 6cm (large) / 4.5cm (small)",
+      "Color: Clay & Sage mix (default)"
+    ]
+  },
+  {
+    "id": "scratcher",
+    "name": "DIY Scratch & Win Card Scratcher Tool",
+    "category": "Fun & Games",
+    "image": "product-scratcher.svg",
+    "price": 6.99,
+    "compare_at": null,
+    "short": "An ergonomic scratcher tool for lottery and scratch-off cards — way better (and cleaner) than a coin.",
+    "description": "Stop ruining your nails and shredding scratch cards with a coin. This ergonomic scratcher has a smooth, rounded edge designed to remove scratch-off coatings cleanly and evenly, without tearing the card underneath. Compact enough to keep in a wallet, glovebox, or junk drawer for whenever a scratch ticket shows up.",
+    "features": [
+      "Smooth rounded edge won't tear cards",
+      "Ergonomic grip, comfortable for repeated use",
+      "Compact — fits in a wallet or glovebox",
+      "Reusable — no more lost coins or keys",
+      "Fun gift add-on for scratch ticket presents"
+    ],
+    "specs": [
+      "Material: PLA+",
+      "Size: 8cm x 3cm",
+      "Color: Sage (default) — custom colors available"
+    ]
+  },
+  {
+    "id": "stevia-spoons",
+    "name": "Stacking Stevia & Sweetener Measuring Spoons (Set of 4)",
+    "category": "Kitchen",
+    "image": "product-stevia-spoons.svg",
+    "price": 8.99,
+    "compare_at": null,
+    "short": "Precision micro-measuring spoons for stevia, sweeteners, spices, and supplements — nests for compact storage.",
+    "description": "Get consistent results with sweeteners and concentrated ingredients where a regular teaspoon is way too much. This set of 4 nesting micro-spoons covers the small measurements that matter most for stevia, baking spices, supplements, and coffee additions. They nest together for compact drawer storage and are dishwasher-safe.",
+    "features": [
+      "Set of 4 nesting micro-measuring spoons",
+      "Ideal for stevia, sweeteners, spices & supplements",
+      "Nests into a compact stack for storage",
+      "Dishwasher-safe (top rack)",
+      "Food-safe PLA+ / PETG construction"
+    ],
+    "specs": [
+      "Sizes included: 1/16 tsp, 1/8 tsp, 1/4 tsp, 1/2 tsp",
+      "Material: Food-safe PETG",
+      "Pack size: 4 spoons",
+      "Care: Top-rack dishwasher safe"
+    ]
+  },
+  {
+    "id": "key-turner",
+    "name": "Easy-Grip Key Turner for Arthritis & Limited Mobility",
+    "category": "Accessibility",
+    "image": "product-key-turner.svg",
+    "price": 10.99,
+    "compare_at": null,
+    "short": "A lever-style key holder that turns hard-to-grip keys with far less hand strain — great for arthritis and limited grip strength.",
+    "description": "Designed for anyone who finds turning small keys painful or difficult. This ergonomic key turner clips onto your existing key and adds a wide, easy-grip lever, multiplying your turning leverage so doors, mailboxes, and padlocks become far easier to operate. A thoughtful, practical gift for parents, grandparents, or anyone managing arthritis or limited hand strength.",
+    "features": [
+      "Adds leverage to reduce hand and wrist strain",
+      "Fits most standard house, mailbox & padlock keys",
+      "Large, easy-to-grip ergonomic handle",
+      "Lightweight and durable PETG construction",
+      "Thoughtful gift for accessibility needs"
+    ],
+    "specs": [
+      "Material: PETG",
+      "Fits key blade widths up to 7mm",
+      "Available colors: Clay, Charcoal, Sage",
+      "Each unit fits one key (multi-packs available)"
+    ]
+  },
+  {
+    "id": "bathroom-organizer",
+    "name": "Modular Bathroom Organizer System (4-Bin Set)",
+    "category": "Home Organization",
+    "image": "product-bathroom-organizer.svg",
+    "price": 27.99,
+    "compare_at": 34.99,
+    "short": "A snap-together modular bin system for bathroom drawers and cabinets — mix, match, and reconfigure as needed.",
+    "description": "Reclaim your bathroom drawers and cabinets with a fully modular bin system. Each bin connects to its neighbors with interlocking edges, so you can build the exact layout your space needs — and reconfigure it any time your storage needs change. Perfect for organizing skincare, makeup, toiletries, and first-aid supplies.",
+    "features": [
+      "4 modular bins with interlocking connectors",
+      "Reconfigurable layout — adapts to any drawer or shelf",
+      "Smooth interior walls, easy to wipe clean",
+      "Stackable for vertical storage in cabinets",
+      "Expandable — add more bins anytime"
+    ],
+    "specs": [
+      "Material: PETG",
+      "Bin sizes: 2x small (10x10cm), 2x large (10x20cm)",
+      "Pack size: 4 bins + connectors",
+      "Color: Mixed (Clay / Sage / Cream) — custom sets available"
+    ]
+  }
+]

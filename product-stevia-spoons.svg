@@ -1,0 +1,14 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F8F5F1"/>
+  <g fill="none" stroke="#C9785A" stroke-width="6" stroke-linecap="round">
+    <path d="M110 280 V160"/>
+    <ellipse cx="110" cy="140" rx="26" ry="20"/>
+    <path d="M180 280 V190"/>
+    <ellipse cx="180" cy="172" rx="20" ry="16"/>
+    <path d="M250 280 V210"/>
+    <ellipse cx="250" cy="196" rx="15" ry="12"/>
+    <path d="M310 280 V230"/>
+    <ellipse cx="310" cy="219" rx="11" ry="9"/>
+  </g>
+  <text x="200" y="350" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#232323">Stevia Spoon Set</text>
+</svg>

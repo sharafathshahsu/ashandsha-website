@@ -1,0 +1,30 @@
+<div class="announce-bar">
+  Free Canada-wide shipping on orders over $50 &nbsp;•&nbsp; Made &amp; printed in Fort McMurray, AB
+</div>
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="logo">
+      <img src="/assets/logo.svg" alt="Ash &amp; Sha logo">
+      <span>Ash <span class="logo-amp">&amp;</span> Sha</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
+      <a href="/shop" class="<%= active === 'shop' ? 'active' : '' %>">Shop</a>
+      <a href="/about" class="<%= active === 'about' ? 'active' : '' %>">Our Story</a>
+      <a href="/contact" class="<%= active === 'contact' ? 'active' : '' %>">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="/shop" class="btn btn-primary btn-sm nav-cta">Shop Now</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-links-mobile">
+    <a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
+    <a href="/shop" class="<%= active === 'shop' ? 'active' : '' %>">Shop</a>
+    <a href="/about" class="<%= active === 'about' ? 'active' : '' %>">Our Story</a>
+    <a href="/contact" class="<%= active === 'contact' ? 'active' : '' %>">Contact</a>
+    <a href="/shop" class="btn btn-primary btn-sm">Shop Now</a>
+  </nav>
+</header>

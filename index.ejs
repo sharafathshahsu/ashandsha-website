@@ -1,0 +1,131 @@
+<%- include('partials/head', { title, description, path, SITE_URL }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy" data-aos="fade-up">
+      <span class="eyebrow">🇨🇦 Designed &amp; Printed in Alberta</span>
+      <h1>Clever everyday tools, <span class="text-pop">printed one layer at a time.</span></h1>
+      <p class="lead">Small-batch 3D printed home goods, organizers, and accessibility tools — designed in-house and made to order in Fort McMurray, Alberta.</p>
+      <div class="hero-actions">
+        <a href="/shop" class="btn btn-primary btn-lg">Shop All Products</a>
+        <a href="/about" class="btn btn-outline btn-lg">Our Story</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>500+</strong><span>Happy customers</span></div>
+        <div><strong>8+</strong><span>Original designs</span></div>
+        <div><strong>1-2 day</strong><span>Print &amp; ship</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" data-aos="fade-up" data-aos-delay="120">
+      <div class="hero-visual-card">
+        <img src="/assets/product-bathroom-organizer.svg" alt="Modular bathroom organizer">
+      </div>
+      <div class="hero-floating hero-floating-1" data-aos="fade-up" data-aos-delay="250">
+        <img src="/assets/product-key-turner.svg" alt="Key turner">
+      </div>
+      <div class="hero-floating hero-floating-2" data-aos="fade-up" data-aos-delay="350">
+        <span class="floating-badge">⭐ 4.9/5 rated</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container trust-bar-inner">
+    <div class="trust-item"><span class="trust-icon">🚚</span> Free shipping over $50</div>
+    <div class="trust-item"><span class="trust-icon">🌱</span> Made from recycled-content filament</div>
+    <div class="trust-item"><span class="trust-icon">🛠️</span> Designed &amp; tested in-house</div>
+    <div class="trust-item"><span class="trust-icon">💛</span> Small business, big care</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="eyebrow">Bestsellers</span>
+      <h2>Crowd favorites</h2>
+      <a href="/shop" class="link-more">View all products <span>→</span></a>
+    </div>
+    <div class="product-grid">
+      <% featured.forEach(p => { %>
+        <%- include('partials/product-card', { p }) %>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head center" data-aos="fade-up">
+      <span class="eyebrow">How it works</span>
+      <h2>From order to doorstep</h2>
+      <p class="section-sub">Every item is printed fresh after you order — no warehouses, no waste.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+        <span class="step-num">01</span>
+        <h3>You order</h3>
+        <p>Pick your products and colors, and place your order online — it's that easy.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="step-num">02</span>
+        <h3>We print it</h3>
+        <p>Your item goes into our print queue and is printed fresh, layer by layer, in our home studio.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="step-num">03</span>
+        <h3>Quality check</h3>
+        <p>Every piece is inspected, cleaned up, and packaged with care before it leaves our hands.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="240">
+        <span class="step-num">04</span>
+        <h3>Shipped to you</h3>
+        <p>Your order ships across Canada via Canada Post — usually within 1-2 business days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band" data-aos="fade-up">
+      <div class="cta-band-content">
+        <span class="eyebrow eyebrow-light">Custom &amp; Wholesale</span>
+        <h2>Have an idea? Let's print it.</h2>
+        <p>Custom designs, bulk orders, and wholesale pricing available for businesses and events.</p>
+        <a href="/contact" class="btn btn-light btn-lg">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head center" data-aos="fade-up">
+      <span class="eyebrow">Reviews</span>
+      <h2>Loved by customers across Canada</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card" data-aos="fade-up">
+        <div class="stars">★★★★★</div>
+        <p>"The shelf pegs were exactly what I needed and arrived so fast. Great quality, will order again!"</p>
+        <span class="review-author">— Jamie L., Edmonton</span>
+      </div>
+      <div class="review-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="stars">★★★★★</div>
+        <p>"Bought the key turner for my dad — total game changer for his arthritis. Thank you!"</p>
+        <span class="review-author">— Priya S., Calgary</span>
+      </div>
+      <div class="review-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="stars">★★★★★</div>
+        <p>"Love supporting a small Canadian business. The bathroom organizer is so well made."</p>
+        <span class="review-author">— Marc T., Fort McMurray</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>

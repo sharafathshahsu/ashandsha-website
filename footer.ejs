@@ -1,0 +1,58 @@
+<section class="newsletter-band">
+  <div class="container newsletter-inner">
+    <div>
+      <h2>Get 10% off your first order</h2>
+      <p>Join our list for new product drops, restocks, and small-batch studio updates.</p>
+    </div>
+    <form class="newsletter-form" action="/contact" method="POST">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <button type="submit" class="btn btn-light">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="/assets/logo.svg" alt="Ash &amp; Sha logo">
+        <span>Ash <span class="logo-amp">&amp;</span> Sha</span>
+      </a>
+      <p>Small-batch 3D printed home goods, organizers, and accessibility tools — designed and printed to order in Fort McMurray, Alberta.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="/shop">All Products</a>
+      <a href="/shop?category=Home%20%26%20Kitchen">Home &amp; Kitchen</a>
+      <a href="/shop?category=Accessibility">Accessibility</a>
+      <a href="/shop?category=Shipping%20%26%20Office">Shipping &amp; Office</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">Our Story</a>
+      <a href="/contact">Contact</a>
+      <a href="/contact">Custom &amp; Wholesale</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <a href="mailto:hello@ashandsha.com">hello@ashandsha.com</a>
+      <a href="#">Fort McMurray, AB, Canada</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; <%= year %> Ash &amp; Sha. All rights reserved.</p>
+    <p>Designed &amp; printed in Canada 🇨🇦</p>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

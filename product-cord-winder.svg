@@ -1,0 +1,9 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F8F5F1"/>
+  <circle cx="200" cy="190" r="110" fill="none" stroke="#E7E1D9" stroke-width="2"/>
+  <path d="M200 90 A100 100 0 0 1 300 190 A100 100 0 0 1 200 290 A100 100 0 0 1 100 190" fill="none" stroke="#C9785A" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="200" cy="190" r="60" fill="#fff" stroke="#95A98E" stroke-width="6"/>
+  <circle cx="200" cy="190" r="30" fill="#D8AE63"/>
+  <circle cx="200" cy="190" r="8" fill="#232323"/>
+  <text x="200" y="350" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#232323">Cord Winder</text>
+</svg>

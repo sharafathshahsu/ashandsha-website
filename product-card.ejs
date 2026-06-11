@@ -1,0 +1,15 @@
+<a href="/product/<%= p.id %>" class="product-card" data-aos="fade-up">
+  <div class="product-thumb">
+    <% if (p.compare_at) { %><span class="badge badge-sale">Sale</span><% } %>
+    <img src="/assets/<%= p.image %>" alt="<%= p.name %>" loading="lazy">
+    <span class="product-quickview">View Product →</span>
+  </div>
+  <div class="product-info">
+    <span class="product-cat"><%= p.category %></span>
+    <h3><%= p.name %></h3>
+    <div class="product-price">
+      <span class="price-now">$<%= p.price.toFixed(2) %></span>
+      <% if (p.compare_at) { %><span class="price-was">$<%= p.compare_at.toFixed(2) %></span><% } %>
+    </div>
+  </div>
+</a>

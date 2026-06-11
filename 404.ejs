@@ -1,0 +1,12 @@
+<%- include('partials/head', { title, description, path, SITE_URL: (typeof SITE_URL !== 'undefined' ? SITE_URL : '') }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="section section-tight">
+  <div class="container" style="text-align:center; padding: 80px 0;">
+    <h1 style="font-size:6rem; margin-bottom:0;">404</h1>
+    <p class="lead">Looks like this page got lost in the print queue.</p>
+    <a href="/" class="btn btn-primary btn-lg">Back to Home</a>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>

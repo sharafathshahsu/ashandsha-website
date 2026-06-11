@@ -1,0 +1,69 @@
+<%- include('partials/head', { title, description, path, SITE_URL }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="section section-tight">
+  <div class="container">
+    <nav class="breadcrumb" data-aos="fade-up">
+      <a href="/">Home</a> <span>/</span> <a href="/shop">Shop</a> <span>/</span> <span><%= product.name %></span>
+    </nav>
+    <div class="product-detail">
+      <div class="product-detail-media" data-aos="fade-up">
+        <% if (product.compare_at) { %><span class="badge badge-sale">Sale</span><% } %>
+        <img src="/assets/<%= product.image %>" alt="<%= product.name %>">
+      </div>
+      <div class="product-detail-info" data-aos="fade-up" data-aos-delay="120">
+        <span class="product-cat"><%= product.category %></span>
+        <h1><%= product.name %></h1>
+        <div class="product-price">
+          <span class="price-now">$<%= product.price.toFixed(2) %></span>
+          <% if (product.compare_at) { %><span class="price-was">$<%= product.compare_at.toFixed(2) %></span><span class="badge badge-save">Save $<%= (product.compare_at - product.price).toFixed(2) %></span><% } %>
+        </div>
+        <p class="lead"><%= product.description %></p>
+
+        <div class="qty-row">
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn" data-action="decrease" aria-label="Decrease quantity">−</button>
+            <input type="number" class="qty-input" value="1" min="1" max="20" aria-label="Quantity">
+            <button type="button" class="qty-btn" data-action="increase" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg add-to-cart">Add to Cart</button>
+        </div>
+        <p class="micro-note">🚚 Free shipping on orders over $50 · 🛠️ Made to order — ships in 1-2 business days</p>
+
+        <div class="feature-list">
+          <h3>Highlights</h3>
+          <ul>
+            <% product.features.forEach(f => { %>
+              <li><span class="check">✓</span> <%= f %></li>
+            <% }) %>
+          </ul>
+        </div>
+
+        <div class="specs-table">
+          <h3>Specifications</h3>
+          <ul>
+            <% product.specs.forEach(s => { %>
+              <li><%= s %></li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="eyebrow">You might also like</span>
+      <h2>More from the shop</h2>
+    </div>
+    <div class="product-grid">
+      <% related.forEach(p => { %>
+        <%- include('partials/product-card', { p }) %>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>

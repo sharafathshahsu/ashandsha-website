@@ -1,0 +1,31 @@
+<%- include('partials/head', { title, description, path, SITE_URL }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="page-hero">
+  <div class="container" data-aos="fade-up">
+    <span class="eyebrow">Shop</span>
+    <h1>All Products</h1>
+    <p class="lead">Small-batch, made-to-order, and shipped fast across Canada.</p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="filter-row" data-aos="fade-up">
+      <a href="/shop" class="filter-pill <%= activeCategory === 'all' ? 'active' : '' %>">All</a>
+      <% categories.forEach(c => { %>
+        <a href="/shop?category=<%= encodeURIComponent(c) %>" class="filter-pill <%= activeCategory === c ? 'active' : '' %>"><%= c %></a>
+      <% }) %>
+    </div>
+    <div class="product-grid">
+      <% products.forEach(p => { %>
+        <%- include('partials/product-card', { p }) %>
+      <% }) %>
+    </div>
+    <% if (!products.length) { %>
+      <p class="empty-state">No products found in this category yet.</p>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>

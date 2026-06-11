@@ -1,0 +1,11 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F8F5F1"/>
+  <rect x="60" y="80" width="280" height="240" rx="12" fill="#fff" stroke="#E7E1D9" stroke-width="2"/>
+  <rect x="80" y="100" width="110" height="90" rx="8" fill="#C9785A"/>
+  <rect x="210" y="100" width="110" height="90" rx="8" fill="#95A98E"/>
+  <rect x="80" y="210" width="110" height="90" rx="8" fill="#D8AE63"/>
+  <rect x="210" y="210" width="110" height="90" rx="8" fill="#E7E1D9"/>
+  <circle cx="135" cy="145" r="14" fill="#fff" opacity="0.6"/>
+  <circle cx="265" cy="145" r="14" fill="#fff" opacity="0.6"/>
+  <text x="200" y="350" font-family="Poppins, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#232323">Modular Bathroom Organizer</text>
+</svg>
