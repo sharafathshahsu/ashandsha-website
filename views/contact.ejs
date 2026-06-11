@@ -29,15 +29,15 @@
         <div class="form-row">
           <label for="topic">What's this about?</label>
           <select id="topic" name="topic">
-            <option>General question</option>
-            <option>Order status</option>
-            <option>Custom design</option>
-            <option>Wholesale inquiry</option>
+            <option <%= (typeof prefillTopic !== 'undefined' && prefillTopic === 'General question') ? 'selected' : '' %>>General question</option>
+            <option <%= (typeof prefillTopic !== 'undefined' && prefillTopic === 'Order status') ? 'selected' : '' %>>Order status</option>
+            <option <%= (typeof prefillTopic !== 'undefined' && prefillTopic === 'Custom design') ? 'selected' : '' %>>Custom design</option>
+            <option <%= (typeof prefillTopic !== 'undefined' && prefillTopic === 'Wholesale inquiry') ? 'selected' : '' %>>Wholesale inquiry</option>
           </select>
         </div>
         <div class="form-row">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+          <textarea id="message" name="message" rows="5" required><%= typeof prefillMessage !== 'undefined' ? prefillMessage : '' %></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
       </form>
@@ -48,6 +48,7 @@
       <p><strong>Location</strong><br>Fort McMurray, Alberta, Canada</p>
       <p><strong>Response time</strong><br>Usually within 1-2 business days</p>
       <p><strong>Follow along</strong><br>Instagram, Facebook &amp; TikTok — links in the footer.</p>
+<p><strong>Custom 3D prints</strong><br>Have a model in mind? <a href="/custom-order">Upload your STL for an instant quote</a>.</p>
     </div>
   </div>
 </section>
