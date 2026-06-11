@@ -1,0 +1,107 @@
+<%- include('partials/head', { title, description, path, SITE_URL }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="page-hero">
+  <div class="container" data-aos="fade-up">
+    <span class="eyebrow">Custom Orders</span>
+    <h1>Got a model? Get a price.</h1>
+    <p class="lead">Upload an STL file and we'll instantly estimate the size, material weight, print time, and price for a one-off 3D print — made to order in Fort McMurray, Alberta.</p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="upload-tool" data-aos="fade-up">
+
+      <form id="stl-form" class="upload-form">
+        <label for="stl-input" class="upload-dropzone" id="dropzone">
+          <input type="file" id="stl-input" name="stl" accept=".stl" hidden>
+          <div class="upload-dropzone-icon">📐</div>
+          <p class="upload-dropzone-title">Drag &amp; drop your .STL file here</p>
+          <p class="upload-dropzone-sub">or click to browse — max 50MB</p>
+          <p class="upload-dropzone-file" id="file-name"></p>
+        </label>
+
+        <div class="form-row upload-infill-row">
+          <label for="infill">Infill density</label>
+          <select id="infill" name="infill">
+            <option value="10">10% — lightweight, decorative</option>
+            <option value="20" selected>20% — standard, everyday use</option>
+            <option value="30">30% — sturdier, functional parts</option>
+            <option value="50">50% — heavy-duty</option>
+            <option value="100">100% — solid</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" id="estimate-btn" disabled>Get Instant Estimate</button>
+        <p class="upload-error" id="upload-error" hidden></p>
+      </form>
+
+      <div class="estimate-result" id="estimate-result" hidden data-aos="fade-up">
+        <h3>Your estimate</h3>
+        <p class="estimate-filename" id="estimate-filename"></p>
+
+        <div class="estimate-grid">
+          <div class="estimate-stat">
+            <span class="estimate-stat-label">Dimensions</span>
+            <span class="estimate-stat-value" id="stat-dimensions">—</span>
+          </div>
+          <div class="estimate-stat">
+            <span class="estimate-stat-label">Volume</span>
+            <span class="estimate-stat-value" id="stat-volume">—</span>
+          </div>
+          <div class="estimate-stat">
+            <span class="estimate-stat-label">Est. weight</span>
+            <span class="estimate-stat-value" id="stat-weight">—</span>
+          </div>
+          <div class="estimate-stat">
+            <span class="estimate-stat-label">Est. print time</span>
+            <span class="estimate-stat-value" id="stat-time">—</span>
+          </div>
+        </div>
+
+        <div class="estimate-price">
+          <div>
+            <span class="estimate-price-label">Estimated price (CAD)</span>
+            <span class="estimate-price-value" id="stat-price">—</span>
+          </div>
+          <ul class="estimate-breakdown" id="estimate-breakdown"></ul>
+        </div>
+
+        <p class="micro-note">This is a ballpark estimate based on your model's volume at <span id="stat-infill"></span> infill in PLA. Final pricing may vary based on supports, finish, and material choice — we'll confirm everything before printing.</p>
+
+        <a href="/contact" id="request-quote-btn" class="btn btn-primary btn-lg">Request This Quote</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head center" data-aos="fade-up">
+      <span class="eyebrow">How it works</span>
+      <h2>From file to finished print</h2>
+      <p class="section-sub">Three steps to get your custom part made.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up">
+        <span class="step-num">01</span>
+        <h3>Upload your STL</h3>
+        <p>Export an STL from your CAD or 3D scanning software and drop it above for an instant size &amp; price estimate.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="step-num">02</span>
+        <h3>Request your quote</h3>
+        <p>Send us the estimate along with any notes — colour, material, quantity — and we'll confirm the final details.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="step-num">03</span>
+        <h3>We print &amp; ship</h3>
+        <p>Your part is printed to order in Fort McMurray, Alberta and shipped Canada-wide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>
