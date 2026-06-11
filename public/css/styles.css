@@ -737,3 +737,100 @@ h3 { font-size: 1.2rem; font-weight: 600; }
   .cta-band { padding: 40px 28px; }
   .trust-bar-inner { justify-content: center; text-align: center; }
 }
+
+
+/* ================= Custom order / STL upload ================= */
+.upload-tool {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+.upload-form { display: flex; flex-direction: column; gap: 18px; }
+.upload-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px dashed var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: 48px 24px;
+    background: var(--color-surface);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+.upload-dropzone:hover, .upload-dropzone.dragover {
+    border-color: var(--color-primary);
+    background: rgba(255,90,54,0.06);
+}
+.upload-dropzone-icon { font-size: 2.4rem; margin-bottom: 10px; }
+.upload-dropzone-title { font-family: var(--font-head); font-weight: 600; margin-bottom: 4px; }
+.upload-dropzone-sub { font-size: 0.85rem; color: var(--color-ink-soft); }
+.upload-dropzone-file {
+    margin-top: 14px;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+.upload-infill-row select { cursor: pointer; }
+.upload-error {
+    color: var(--color-primary-dark);
+    background: rgba(255,90,54,0.08);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 0.9rem;
+}
+
+.estimate-result {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+}
+.estimate-result h3 { margin-bottom: 4px; }
+.estimate-filename {
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+.estimate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.estimate-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+}
+.estimate-stat-label { font-size: 0.78rem; color: var(--color-ink-soft); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+.estimate-stat-value { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; }
+
+.estimate-price {
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding: 18px 0;
+    margin-bottom: 18px;
+}
+.estimate-price-label { display: block; font-size: 0.85rem; color: var(--color-ink-soft); }
+.estimate-price-value { font-family: var(--font-head); font-weight: 800; font-size: 2rem; color: var(--color-primary); }
+.estimate-breakdown { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.estimate-breakdown li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    color: var(--color-ink-soft);
+}
+.estimate-result .btn { width: 100%; }
+.estimate-result .micro-note { margin-bottom: 18px; }
+
+@media (max-width: 1024px) {
+    .upload-tool { grid-template-columns: 1fr; }
+}
