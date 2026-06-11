@@ -1,0 +1,11 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F8F5F1"/>
+  <g transform="translate(200,200) rotate(-20)">
+    <rect x="-90" y="-18" width="120" height="36" rx="14" fill="#C9785A"/>
+    <circle cx="-90" cy="0" r="34" fill="none" stroke="#C9785A" stroke-width="14"/>
+    <rect x="30" y="-8" width="70" height="16" fill="#232323"/>
+    <rect x="85" y="-8" width="14" height="28" fill="#232323"/>
+    <rect x="60" y="8" width="14" height="20" fill="#232323"/>
+  </g>
+  <text x="200" y="350" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#232323">Easy-Grip Key Turner</text>
+</svg>
