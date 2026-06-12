@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-// AOS init
-if (window.AOS) AOS.init({ duration: 600, once: true, offset: 60 });
+// AOS init (disabled on mobile to reduce main-thread work and avoid layout shift)
+if (window.AOS) AOS.init({ duration: 600, once: true, offset: 60, disable: 'mobile' });
 
 // Mobile nav toggle
 const toggle = document.querySelector('.nav-toggle');
