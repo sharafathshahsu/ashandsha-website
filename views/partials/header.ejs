@@ -1,32 +1,36 @@
 <div class="announce-bar">
-  Free Canada-wide shipping on orders over $50 &nbsp;•&nbsp; Made &amp; printed in Fort McMurray, AB
+Free Canada-wide shipping on orders over $50 &nbsp;•&nbsp; Made &amp; printed in Fort McMurray, AB
 </div>
 <header class="site-header">
-  <div class="container nav">
-    <a href="/" class="logo">
-      <img src="/assets/logo.svg" alt="Ash &amp; Sha logo">
-      <span>Ash <span class="logo-amp">&amp;</span> Sha</span>
-    </a>
-    <nav class="nav-links">
-      <a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
-      <a href="/shop" class="<%= active === 'shop' ? 'active' : '' %>">Shop</a>
-      <a href="/about" class="<%= active === 'about' ? 'active' : '' %>">Our Story</a>
+<div class="container nav">
+<a href="/" class="logo">
+<img src="/assets/logo.svg" alt="Ash &amp; Sha logo">
+<span>Ash <span class="logo-amp">&amp;</span> Sha</span>
+</a>
+<nav class="nav-links">
+<a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
+<a href="/shop" class="<%= active === 'shop' ? 'active' : '' %>">Shop</a>
+<a href="/about" class="<%= active === 'about' ? 'active' : '' %>">Our Story</a>
 <a href="/custom-order" class="<%= active === 'custom-order' ? 'active' : '' %>">Custom Order</a>
-      <a href="/contact" class="<%= active === 'contact' ? 'active' : '' %>">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <a href="/shop" class="btn btn-primary btn-sm nav-cta">Shop Now</a>
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <nav class="nav-links-mobile">
-    <a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
-    <a href="/shop" class="<%= active === 'shop' ? 'active' : '' %>">Shop</a>
-    <a href="/about" class="<%= active === 'about' ? 'active' : '' %>">Our Story</a>
+<a href="/contact" class="<%= active === 'contact' ? 'active' : '' %>">Contact</a>
+</nav>
+<div class="nav-actions">
+<a href="/cart" class="cart-link <%= active === 'cart' ? 'active' : '' %>" aria-label="View cart">
+🛒<span class="cart-badge">0</span>
+</a>
+<a href="/shop" class="btn btn-primary btn-sm nav-cta">Shop Now</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+<nav class="nav-links-mobile">
+<a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
+<a href="/shop" class="<%= active === 'shop' ? 'active' : '' %>">Shop</a>
+<a href="/about" class="<%= active === 'about' ? 'active' : '' %>">Our Story</a>
 <a href="/custom-order" class="<%= active === 'custom-order' ? 'active' : '' %>">Custom Order</a>
-    <a href="/contact" class="<%= active === 'contact' ? 'active' : '' %>">Contact</a>
-    <a href="/shop" class="btn btn-primary btn-sm">Shop Now</a>
-  </nav>
+<a href="/contact" class="<%= active === 'contact' ? 'active' : '' %>">Contact</a>
+<a href="/cart" class="<%= active === 'cart' ? 'active' : '' %>">Cart (<span class="cart-badge">0</span>)</a>
+<a href="/shop" class="btn btn-primary btn-sm">Shop Now</a>
+</nav>
 </header>
