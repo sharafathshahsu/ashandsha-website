@@ -794,11 +794,17 @@ h3 { font-size: 1.2rem; font-weight: 600; }
     height: 100%;
     display: block;
 }
+.model-preview canvas[hidden] {
+      display: none;
+}
 .model-preview-empty {
     color: var(--color-ink-soft);
     font-size: 0.9rem;
     text-align: center;
     padding: 0 24px;
+}
+.model-preview-empty[hidden] {
+      display: none;
 }
 
 /* ---- Multicolour controls ---- */
@@ -842,6 +848,9 @@ h3 { font-size: 1.2rem; font-weight: 600; }
     gap: 14px;
     flex-wrap: wrap;
 }
+.color-swatch-row[hidden] {
+      display: none;
+}
 .color-swatch {
     display: flex;
     flex-direction: column;
@@ -851,6 +860,9 @@ h3 { font-size: 1.2rem; font-weight: 600; }
     color: var(--color-ink-soft);
     font-family: var(--font-head);
     font-weight: 600;
+}
+.color-swatch[hidden] {
+      display: none;
 }
 .color-swatch input[type="color"] {
     width: 40px;
