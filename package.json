@@ -1,19 +1,20 @@
 {
-  "name": "ash-and-sha",
-  "version": "1.0.0",
-  "description": "Ash & Sha - small-batch 3D printed home goods, made in Fort McMurray, Alberta",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "dependencies": {
-    "express": "^4.19.2",
-    "ejs": "^3.1.10",
-    "compression": "^1.7.4",
-    "multer": "^1.4.5-lts.1",
-    "stripe": "^16.12.0"
-  }
+    "name": "ash-and-sha",
+    "version": "1.0.0",
+    "description": "Ash & Sha - small-batch 3D printed home goods, made in Fort McMurray, Alberta",
+    "main": "server.js",
+    "scripts": {
+          "start": "node server.js"
+    },
+    "engines": {
+          "node": ">=18.0.0"
+    },
+    "dependencies": {
+          "express": "^4.19.2",
+          "ejs": "^3.1.10",
+          "compression": "^1.7.4",
+          "multer": "^1.4.5-lts.1",
+          "jszip": "^3.10.1",
+          "stripe": "^16.12.0"
+    }
 }
