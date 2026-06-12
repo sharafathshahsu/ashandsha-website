@@ -9,9 +9,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const SITE_URL = process.env.SITE_URL || 'https://ashandsha.com';
 
+const stripeSecret = process.env.STRIPE_SECRET_KEY;
+const stripe = stripeSecret ? require('stripe')(stripeSecret) : null;
+
 const PRODUCTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'products.json'), 'utf-8'));
 
 app.use(compression());
+app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,150 +27,218 @@ app.locals.year = new Date().getFullYear();
 
 // In-memory upload — files are never written to disk, just parsed and discarded.
 const upload = multer({
-    storage: multer.memoryStorage(),
-    limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
-    fileFilter: (req, file, cb) => {
-          const name = (file.originalname || '').toLowerCase();
-          if (name.endsWith('.stl')) return cb(null, true);
-          cb(new Error('Only .stl files are accepted.'));
-    },
+storage: multer.memoryStorage(),
+limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
+fileFilter: (req, file, cb) => {
+const name = (file.originalname || '').toLowerCase();
+if (name.endsWith('.stl')) return cb(null, true);
+cb(new Error('Only .stl files are accepted.'));
+},
 });
 
 app.get('/', (req, res) => {
-    const featured = PRODUCTS.slice(0, 4);
-    res.render('index', {
-          title: 'Ash & Sha — Clever 3D Printed Goods, Made in Alberta',
-          description: 'Small-batch 3D printed home goods, organizers, and accessibility tools — designed and made to order in Fort McMurray, Alberta, Canada.',
-          path: '',
-          active: 'home',
-          featured,
-    });
+const featured = PRODUCTS.slice(0, 4);
+res.render('index', {
+title: 'Ash & Sha — Clever 3D Printed Goods, Made in Alberta',
+description: 'Small-batch 3D printed home goods, organizers, and accessibility tools — designed and made to order in Fort McMurray, Alberta, Canada.',
+path: '',
+active: 'home',
+featured,
+});
 });
 
 app.get('/shop', (req, res) => {
-    const category = req.query.category || 'all';
-    const products = category === 'all'
-      ? PRODUCTS
-          : PRODUCTS.filter(p => p.category === category);
-    res.render('shop', {
-          title: 'Shop All Products',
-          description: 'Browse our full collection of small-batch 3D printed home goods, organizers, and accessibility tools.',
-          path: 'shop',
-          active: 'shop',
-          products,
-          categories: CATEGORIES,
-          activeCategory: category,
-    });
+const category = req.query.category || 'all';
+const products = category === 'all'
+? PRODUCTS
+: PRODUCTS.filter(p => p.category === category);
+res.render('shop', {
+title: 'Shop All Products',
+description: 'Browse our full collection of small-batch 3D printed home goods, organizers, and accessibility tools.',
+path: 'shop',
+active: 'shop',
+products,
+categories: CATEGORIES,
+activeCategory: category,
+});
 });
 
 app.get('/product/:id', (req, res) => {
-    const product = PRODUCTS.find(p => p.id === req.params.id);
-    if (!product) return res.status(404).render('404', { title: 'Not Found', description: 'Page not found', path: '404', active: '' });
-    const related = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 3);
-    const fallback = PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
-    res.render('product', {
-          title: product.name,
-          description: product.short,
-          path: `product/${product.id}`,
-          active: 'shop',
-          product,
-          related: related.length ? related : fallback,
-    });
+const product = PRODUCTS.find(p => p.id === req.params.id);
+if (!product) return res.status(404).render('404', { title: 'Not Found', description: 'Page not found', path: '404', active: '' });
+const related = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 3);
+const fallback = PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
+res.render('product', {
+title: product.name,
+description: product.short,
+path: `product/${product.id}`,
+active: 'shop',
+product,
+related: related.length ? related : fallback,
+});
 });
 
 app.get('/about', (req, res) => {
-    res.render('about', {
-          title: 'Our Story',
-          description: 'Meet Ash & Sha — a home-based 3D printing studio in Fort McMurray, Alberta, designing clever everyday tools printed one layer at a time.',
-          path: 'about',
-          active: 'about',
-    });
+res.render('about', {
+title: 'Our Story',
+description: 'Meet Ash & Sha — a home-based 3D printing studio in Fort McMurray, Alberta, designing clever everyday tools printed one layer at a time.',
+path: 'about',
+active: 'about',
+});
 });
 
 app.get('/custom-order', (req, res) => {
-    res.render('custom-order', {
-          title: 'Custom 3D Print Quote',
-          description: 'Upload your STL file and get an instant ballpark estimate for a custom 3D print — material, print time, and price.',
-          path: 'custom-order',
-          active: 'custom-order',
-    });
+res.render('custom-order', {
+title: 'Custom 3D Print Quote',
+description: 'Upload your STL file and get an instant ballpark estimate for a custom 3D print — material, print time, and price.',
+path: 'custom-order',
+active: 'custom-order',
+});
 });
 
 // STL upload + instant estimate (AJAX). Files are parsed in memory and never stored.
 app.post('/custom-order/estimate', (req, res) => {
-    upload.single('stl')(req, res, (err) => {
-          if (err) {
-                  return res.status(400).json({ ok: false, error: err.message || 'Upload failed.' });
-          }
-          if (!req.file) {
-                  return res.status(400).json({ ok: false, error: 'No file received.' });
-          }
+upload.single('stl')(req, res, (err) => {
+if (err) {
+return res.status(400).json({ ok: false, error: err.message || 'Upload failed.' });
+}
+if (!req.file) {
+return res.status(400).json({ ok: false, error: 'No file received.' });
+}
 
-                             try {
-                                     const geometry = parseSTL(req.file.buffer);
-                                     if (!geometry.volumeMm3 || !isFinite(geometry.volumeMm3)) {
-                                               return res.status(400).json({ ok: false, error: 'Could not read geometry from that file.' });
-                                     }
+try {
+const geometry = parseSTL(req.file.buffer);
+if (!geometry.volumeMm3 || !isFinite(geometry.volumeMm3)) {
+return res.status(400).json({ ok: false, error: 'Could not read geometry from that file.' });
+}
 
-            const infillParam = parseInt(req.body.infill, 10);
-                                     const opts = {};
-                                     if ([10, 20, 30, 50, 100].includes(infillParam)) opts.infill = infillParam / 100;
+const infillParam = parseInt(req.body.infill, 10);
+const opts = {};
+if ([10, 20, 30, 50, 100].includes(infillParam)) opts.infill = infillParam / 100;
 
-            const estimate = estimateFromGeometry(geometry, opts);
+const estimate = estimateFromGeometry(geometry, opts);
 
-            return res.json({
-                      ok: true,
-                      fileName: req.file.originalname,
-                      fileSizeBytes: req.file.size,
-                      ...estimate,
-            });
-                             } catch (e) {
-                                     return res.status(400).json({ ok: false, error: e.message || 'Could not parse STL file.' });
-                             }
-    });
+return res.json({
+ok: true,
+fileName: req.file.originalname,
+fileSizeBytes: req.file.size,
+...estimate,
+});
+} catch (e) {
+return res.status(400).json({ ok: false, error: e.message || 'Could not parse STL file.' });
+}
+});
+});
+
+app.get('/cart', (req, res) => {
+res.render('cart', {
+title: 'Your Cart',
+description: 'Review the items in your cart and check out securely with Stripe.',
+path: 'cart',
+active: 'cart',
+});
+});
+
+// Create a Stripe Checkout session from the items in the client-side cart.
+app.post('/checkout/session', async (req, res) => {
+if (!stripe) {
+return res.status(500).json({ error: 'Online checkout is not set up yet. Please contact us to place your order.' });
+}
+
+try {
+const items = Array.isArray(req.body.items) ? req.body.items : [];
+if (!items.length) {
+return res.status(400).json({ error: 'Your cart is empty.' });
+}
+
+const line_items = [];
+for (const item of items) {
+const product = PRODUCTS.find(p => p.id === item.id);
+if (!product) continue;
+const qty = Math.min(20, Math.max(1, parseInt(item.qty, 10) || 1));
+line_items.push({
+price_data: {
+currency: 'cad',
+product_data: {
+name: product.name,
+images: [`${SITE_URL}/assets/${product.image}`],
+},
+unit_amount: Math.round(product.price * 100),
+},
+quantity: qty,
+});
+}
+
+if (!line_items.length) {
+return res.status(400).json({ error: 'Could not find any of those items.' });
+}
+
+const session = await stripe.checkout.sessions.create({
+mode: 'payment',
+payment_method_types: ['card'],
+line_items,
+shipping_address_collection: { allowed_countries: ['CA', 'US'] },
+success_url: `${SITE_URL}/checkout/success`,
+cancel_url: `${SITE_URL}/cart`,
+});
+
+res.json({ url: session.url });
+} catch (err) {
+console.error('Stripe checkout error:', err);
+res.status(500).json({ error: 'Could not start checkout. Please try again.' });
+}
+});
+
+app.get('/checkout/success', (req, res) => {
+res.render('checkout-success', {
+title: 'Order Confirmed',
+description: 'Thank you for your order — we appreciate your business!',
+path: 'checkout/success',
+active: '',
+});
 });
 
 app.get('/contact', (req, res) => {
-    // The custom-order page links here with a `quote` query param containing
-          // a ready-made summary of the customer's estimate, so it's prefilled below.
-          const quote = typeof req.query.quote === 'string' ? req.query.quote.slice(0, 2000) : '';
-    res.render('contact', {
-          title: 'Contact Us',
-          description: 'Get in touch with Ash & Sha — questions, custom orders, and wholesale inquiries welcome.',
-          path: 'contact',
-          active: 'contact',
-          prefillMessage: quote,
-          prefillTopic: quote ? 'Custom design' : '',
-    });
+// The custom-order page links here with a `quote` query param containing
+// a ready-made summary of the customer's estimate, so it's prefilled below.
+const quote = typeof req.query.quote === 'string' ? req.query.quote.slice(0, 2000) : '';
+res.render('contact', {
+title: 'Contact Us',
+description: 'Get in touch with Ash & Sha — questions, custom orders, and wholesale inquiries welcome.',
+path: 'contact',
+active: 'contact',
+prefillMessage: quote,
+prefillTopic: quote ? 'Custom design' : '',
+});
 });
 
 app.post('/contact', (req, res) => {
-    // Placeholder handler — wire up to email service later
-           res.render('contact', {
-                 title: 'Contact Us',
-                 description: 'Get in touch with Ash & Sha — questions, custom orders, and wholesale inquiries welcome.',
-                 path: 'contact',
-                 active: 'contact',
-                 submitted: true,
-           });
+// Placeholder handler — wire up to email service later
+res.render('contact', {
+title: 'Contact Us',
+description: 'Get in touch with Ash & Sha — questions, custom orders, and wholesale inquiries welcome.',
+path: 'contact',
+active: 'contact',
+submitted: true,
+});
 });
 
 app.get('/sitemap.xml', (req, res) => {
-    const staticPaths = ['', 'shop', 'about', 'contact', 'custom-order'];
-    const productPaths = PRODUCTS.map(p => `product/${p.id}`);
-    const urls = [...staticPaths, ...productPaths].map(p => `  <url><loc>${SITE_URL}/${p}</loc></url>`).join('\n');
-    res.set('Content-Type', 'application/xml');
-    res.send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`);
+const staticPaths = ['', 'shop', 'about', 'contact', 'custom-order', 'cart'];
+const productPaths = PRODUCTS.map(p => `product/${p.id}`);
+const urls = [...staticPaths, ...productPaths].map(p => ` <url><loc>${SITE_URL}/${p}</loc></url>`).join('\n');
+res.set('Content-Type', 'application/xml');
+res.send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`);
 });
 
 app.get('/robots.txt', (req, res) => {
-    res.type('text/plain').send(`User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+res.type('text/plain').send(`User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 });
 
 app.use((req, res) => {
-    res.status(404).render('404', { title: 'Page Not Found', description: 'Page not found', path: '404', active: '' });
+res.status(404).render('404', { title: 'Page Not Found', description: 'Page not found', path: '404', active: '' });
 });
 
 app.listen(PORT, () => {
-    console.log(`Ash & Sha running on port ${PORT}`);
+console.log(`Ash & Sha running on port ${PORT}`);
 });
