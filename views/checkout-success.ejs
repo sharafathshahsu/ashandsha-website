@@ -1,0 +1,21 @@
+<%- include('partials/head', { title, description, path, SITE_URL }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="page-hero" id="checkout-success">
+  <div class="container" data-aos="fade-up">
+    <span class="eyebrow">Order Received</span>
+    <h1>Thank you for your order!</h1>
+    <p class="lead">We've received your payment and will start working on your order right away. A confirmation email is on its way to you.</p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container" data-aos="fade-up">
+    <div class="alert-success">
+      <strong>You're all set.</strong> If you have any questions about your order, reach out anytime via our <a href="/contact">contact page</a>.
+    </div>
+    <a href="/shop" class="btn btn-primary btn-lg">Continue Shopping</a>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>

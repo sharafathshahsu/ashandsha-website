@@ -1,0 +1,34 @@
+<%- include('partials/head', { title, description, path, SITE_URL }) %>
+<%- include('partials/header', { active }) %>
+
+<section class="page-hero">
+  <div class="container" data-aos="fade-up">
+    <span class="eyebrow">Your Cart</span>
+    <h1>Shopping Cart</h1>
+    <p class="lead">Review your items, then check out securely with Stripe.</p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container" id="cart-page">
+    <div id="cart-empty" class="cart-empty" data-aos="fade-up">
+      <p>Your cart is empty.</p>
+      <a href="/shop" class="btn btn-primary">Browse the Shop</a>
+    </div>
+
+    <div id="cart-list" class="cart-list" hidden data-aos="fade-up"></div>
+
+    <div id="cart-summary" class="cart-summary" hidden data-aos="fade-up" data-aos-delay="120">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <p class="micro-note">Shipping &amp; taxes calculated at checkout. 🚚 Free Canada-wide shipping on orders over $50.</p>
+      <div id="checkout-error" class="upload-error" hidden></div>
+      <button type="button" id="checkout-btn" class="btn btn-primary btn-lg">Checkout</button>
+      <a href="/shop" class="btn btn-outline">Continue Shopping</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer', { year }) %>
